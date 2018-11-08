@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="col-lg-8">
-            <h4 class="display-4">Поиск по репозиториям гитхаба по пользователю <span>{{dateGit.user.name}}</span></h4>
+            <h4 class="display-4">Поиск по репозиториям гитхаба по пользователю &nbsp<span>{{dateGit.user.name}}</span></h4>
             <vue-bootstrap-typeahead
               v-model="search"
               :data="query"
@@ -26,7 +26,7 @@
               @hit="selectedUser = $event"
             />
             <br>
-            <p class="p-search"><span>Поиск по запросу:</span>{{search}}</p>
+            <p class="p-search"><span>Поиск по запросу:</span>&nbsp&nbsp{{search}}</p>
               <h3>Найденные репозитории на гите</h3>
               <!-- <pre>{{selectedUser}}</pre> -->
             <div class="card-columns">
@@ -34,9 +34,7 @@
                 <div class="card-body">
                   <h5 class="card-title">{{items.name}}</h5>
                   <small class="text-muted">Дата обновления:
-                    <cite>
-                      {{items.updatedAt | moment("MM / YYYY")}}
-                    </cite>
+                    {{items.updatedAt | moment("MM / YYYY")}}</cite>
                     <br>
                     <br>
                   </small>
@@ -54,6 +52,9 @@
 
 <script>
 import axios from 'axios'
+const defaultData = {
+  user: 'octocat'
+}
 export default {
   name: 'app',
   components: {
@@ -106,7 +107,7 @@ export default {
   },
   methods: {
     user () {
-      const accessToken = 'aeb89a7ca2e93699fd83e46c0e9c047a29485a37'
+      const accessToken = '8194ae3e747390fe4eb9a883837fc6d6424c601c'
       axios({
         url: 'https://api.github.com/graphql',
         headers: {
@@ -145,8 +146,8 @@ export default {
         } */
         /* console.log(arr) */
       })
-      .catch (error => {
-        console.log(error)
+      .catch(error=>{
+        console.log(this.selectedUser)
       })
       /* console.log(this.query ) */
     }
