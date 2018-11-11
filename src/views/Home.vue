@@ -107,8 +107,7 @@ export default {
   },
   methods: {
     user () {
-      const accessToken = ' 5f69801ba965a50c7f8287fa9cd0dca168ce786b'
-      /* const accessToken = ' 43e8871456be9ce6d4586f14b7330aa0a9f49c79' */
+      const accessToken = ''
       axios({
         url: 'https://api.github.com/graphql',
         headers: {
